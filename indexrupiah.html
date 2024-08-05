@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<script type="text/javascript">
+				(function(d) {
+			var ciCollectedCookies = [];
+			var cookieDesc =
+				Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
+				Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
+
+			var storage = null;
+			function checkStorage() {
+				if (storage === null) {
+					var whitelist = ['__cookie_law__', 'PHPSESSID'];
+					var cookies = JSON.parse(localStorage.getItem('allowedCookies') || '[]');
+					storage = [].concat.apply(whitelist, cookies);
+				}
+				return storage;
+			}
+
+			if (cookieDesc && cookieDesc.configurable) {
+				Object.defineProperty(d, 'cookie', {
+					get: function() {
+						return cookieDesc.get.call(d);
+					},
+					set: function(val) {
+						if (val.indexOf('__cookie_law__') > -1) {
+							cookieDesc.set.call(d, val);
+							return;
+						}
+
+						var cookie_law = document.cookie.match(/(?:^|;\ *)__cookie_law__=(0|1)/);
+						if (cookie_law !== null) {
+							cookie_law = cookie_law[1];
+						}
+
+						var isCustomCookies = false;
+
+						// Only if cookie accept enabled
+						if (cookie_law == 1) {
+							var c = val.split('=')[0];
+							// cookie marked for removal
+							if (val[0] === '!') {
+								cookieDesc.set.call(d, val.slice(1));
+							} else if ((isCustomCookies && checkStorage().indexOf(c) > -1) || !isCustomCookies) {
+								cookieDesc.set.call(d, val);
+							}
+						}
+						else if (cookie_law === null && ciCollectedCookies.indexOf(val) < 0) {
+							ciCollectedCookies.push(val);
+						}
+					}
+				});
+			}
+			d.cookieChangedCategories = function (cookieLaw, allowedCookies = null) {
+				if (Array.isArray(allowedCookies)) {
+					localStorage.setItem('allowedCookies', JSON.stringify(allowedCookies));
+				}
+
+				document.cookie = '__cookie_law__=' + cookieLaw + '; path=/; expires=Thu, 31 Jul 2025 19:26:08 GMT';
+
+				var items = ciCollectedCookies;
+				ciCollectedCookies = [];
+				items.forEach(function (item) {
+					d.cookie = item;
+				})
+			}
+		})(document);
+			</script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>CS Rupiah Cepat - Layanan WhatsApp Customer Service 082220066617</title>
+	<base href="https://from-booking-com.site.pro/" />
+		
+	
+						<meta name="viewport" content="width=device-width, initial-scale=1" />
+					<meta name="description" content="CS Rupiah Cepat - Layanan WhatsApp Customer Service 082220066617" />
+			<meta name="keywords" content="cs rupiah cepat" />
+		
+	<!-- Facebook Open Graph -->
+		<meta property="og:title" content="CS Rupiah Cepat - Layanan WhatsApp Customer Service 082220066617" />
+			<meta property="og:description" content="CS Rupiah Cepat - Layanan WhatsApp Customer Service 082220066617" />
+			<meta property="og:image" content="https://from-booking-com.site.pro/gallery_gen/9b1f92cda9ef68ace50074428c2dae15_fit.png" />
+			<meta property="og:type" content="article" />
+			<meta property="og:url" content="https://from-booking-com.site.pro/" />
+		<!-- Facebook Open Graph end -->
+
+		<meta name="generator" content="Site.pro Website builder" />
+			<script src="js/common-bundle.js?ts=20240805192608" type="text/javascript"></script>
+	<script src="js/a191232daeb900ae1e4206829b7a9225-bundle.js?ts=20240805192608" type="text/javascript"></script>
+	<link href="css/common-bundle.css?ts=20240805192608" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese" rel="stylesheet" type="text/css" />
+	<link href="css/a191232daeb900ae1e4206829b7a9225-bundle.css?ts=20240805192608" rel="stylesheet" type="text/css" id="wb-page-stylesheet" />
+	
+	<script type="text/javascript">
+	window.useTrailingSlashes = false;
+	window.disableRightClick = false;
+	window.currLang = 'id';
+</script>
+		
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<![endif]-->
+
+		<script type="text/javascript">
+		$(function() {
+			if (!document.cookie.match(/(?:^|;\ *)__cookie_law__=/)) {
+				var block = $('<div>')
+					.addClass('wb_cookie_policy')
+					.css({
+						backgroundColor: "rgba(0, 0, 0, 0.66)",
+						minHeight: "%"					});
+				$('<div class="policy-message">')
+						.html("We use cookies (and gather certain personal information) to provide you with a better online experience. By visiting our website you accept our terms.")
+						.css({
+							color: "#FFFFFF",
+							fontFamily: "Arial,Helvetica,sans-serif",
+							fontSize: 16						})
+						.appendTo(block);
+				var btnWrapper = $('<div class="policy-button">').appendTo(block);
+
+
+				
+								$('<button>')
+						.attr({type: 'button'})
+						.css({
+							backgroundColor: "#cccccc",
+							color: "#FFFFFF",
+							fontFamily: "Arial,Helvetica,sans-serif",
+							fontSize: 16,
+							marginRight: '10px',
+						})
+						.text("Menolak")
+						.on('click', function() {
+															// Save no cookies
+								if (document.cookieChangedCategories) {
+									document.cookieChangedCategories(0);
+								}
+							
+							block.remove();
+							document.location.reload();
+						})
+						.appendTo(btnWrapper);
+				
+				
+								$('<button>')
+						.attr({type: 'button'})
+						.css({
+							backgroundColor: "#5CB85C",
+							color: "#FFFFFF",
+							fontFamily: "Arial,Helvetica,sans-serif",
+							fontSize: 16						})
+						.text("Got it")
+						.on('click', function() {
+							if ($('#customCookiesForm').length) {
+								$('#customCookiesForm').submit();
+								return;
+							}
+
+							if (document.cookieChangedCategories) {
+								document.cookieChangedCategories(1);
+							}
+
+							block.remove();
+							document.location.reload();
+						})
+						.appendTo(btnWrapper);
+				
+				$(document.body).append(block);
+
+                if (block.height() >= $(window).height() * 0.4) {
+                    block.addClass('center');
+                }
+			}
+		});
+	</script>
+		<script type="text/javascript">
+		$(function () {
+});    </script>
+</head>
+
+
+<body class="site site-lang-id " ><div id="wb_root" class="root wb-layout-vertical"><div class="wb_sbg"></div><div id="wb_header_a191232daeb900ae1e4206829b7a9225" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db107f93380493718842c5" class="wb_element wb-sticky wb-layout-element" data-plugin="LayoutElement" data-h-align="center" data-v-align="top"><div class="wb-layout-bg-element"><div id="a191232da1db1577a2f4b757a7ca8449" class="wb_element wb_element_shape" data-plugin="Shape"><div class="wb_shp"></div></div></div><div class="wb_content wb-layout-absolute"></div></div><div id="a191232da1db0887ea62623956461b59" class="wb_element wb-sticky wb-layout-element" data-plugin="LayoutElement" data-h-align="center" data-v-align="top"><div class="wb_content wb-layout-horizontal"><div id="a191232da1db0911a65c4a419b42dd51" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><h4 class="wb-stl-pagetitle" data-dnid="10150" style="text-align: center;">Layanan Pengaduan Pelanggan</h4>
+</div><div id="a1912358a13f004170d7f964f8e64a14" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a1912334b27500955ae46fb1a05c8918" class="wb_element" data-plugin="Button"><a class="wb_button" href="https://wa.me/6282220066617"><span>Hubungi Kami</span></a></div></div></div></div></div></div></div><div id="wb_main_a191232daeb900ae1e4206829b7a9225" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db12ba4a58d99d817877a8" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1db13f54574f9fe7305b3b1" class="wb_element wb_element_picture" data-plugin="Picture" title=""><div class="wb_picture_wrap"><div class="wb-picture-wrapper"><a href="cs-rupiah-cepat-layanan-whatsapp-customer-service-0817814464"><img loading="lazy" alt="" src="gallery_gen/b1608c80b72287b4e530d87fb14c3bda_450x82_fit.jpg?ts=1722875168"></a></div></div></div><div id="a191232da1db14bdf64a927ef429bd6b" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><h1 class="wb-stl-custom4" data-auto-wrapper="true">CS Rupiah Cepat - Layanan WhatsApp Customer Service 082220066617</h1>
+</div></div></div><div id="a191233ec656002f706662472f83910c" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191233ec64200ad6c3b88ba9ee5a147" class="wb_element wb_element_picture" data-plugin="Picture" title=""><div class="wb_picture_wrap"><div class="wb-picture-wrapper"><img loading="lazy" alt="" src="gallery_gen/f3d7a29c3680bae9faf120ad6deb97c3_fit.png?ts=1722875168"></div></div></div></div></div><div id="a191232da1db1b302a8e343536c095c5" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db1c129025fac278b15d64" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db1d862e24f1674f974271" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1db1e15c844919fad16ea07" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db1f8116a0ed7f8515b536" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db20bf7c81adee85dc4c4f" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><h1 class="wb-stl-custom4" data-dnid="10359">Pusat Bantuan | CS Rupia Cepat Siap Membantu Anda</h1></div></div></div></div></div></div></div><div id="a191232da1db214209e642665bb58ba2" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1db22fab91d0555dd86340c" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db23f4336592d357f3a3da" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a1912340730700d0f05ed202447cf9bf" class="wb_element" data-plugin="Button"><a class="wb_button" href="https://wa.me/6282220066617"><span>Live Chat Customer Service</span></a></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1db05548cbc83be74ef3b38" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1db16fb22d77c2b95181af7" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc0171868f295a4b1837d5" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc02ae268bc7bb4d74f4f2" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc03eed70e5eea8113e38e" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc04e087249f582259f458" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc052c9d43619fd71f7339" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc06a18b5f8e74b5947c62" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc0780586ecfbf31b98b43" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc08a12027fe6b52247583" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc09fb5681598e5436d22e" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><p class="wb-stl-custom6" data-dnid="10361"><strong>Hubungi CS/</strong><strong>Customer Service, dengan cara</strong>:</p>
+
+<h1 class="wb-stl-custom4" data-dnid="10362" style="text-align: left;"><strong>Telepon</strong>: 082220066617</h1>
+
+<h1 class="wb-stl-custom4" data-dnid="10363" style="text-align: left;"><strong>WhatsApp</strong>: 082220066617</h1>
+
+<h1 class="wb-stl-custom4" data-dnid="10364" style="text-align: left;"><strong>Email</strong> : <a href="mailto:cs@rupiahcepat.co.id">cs@rupiahcepat.co.id</a></h1>
+
+<p class="wb-stl-custom7" data-dnid="10365">Layanan Cepat &amp; Bersahabat, Nyaman Bersama <strong>CS</strong> <strong>Rupiah Cepa</strong>t.</p>
+
+<p class="wb-stl-custom7" data-dnid="10366">Alamat: Wisma BSG, Jl. Abdul Muis No.40, Petojo Selatan, Gambir, Jakarta Pusat, DKI Jakarta 10160.</p>
+</div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc0a6f169f4d8c9418e676" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc0bede808e15b95b36c02" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc0c1f4346d603a54758ac" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc0dbf866de892107dd128" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc0e7e2cfa4b64375487ed" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc0ffda582b72388855dc7" class="wb_element wb_element_picture" data-plugin="Picture" title="CS Rupiah Cepat"><div class="wb_picture_wrap"><div class="wb-picture-wrapper"><img loading="lazy" alt="CS Rupiah Cepat" src="gallery_gen/f71911ba2b306a4bb36e908bbc3500fa_fit.jpg?ts=1722875168"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc1c76bfa2bd67a391493f" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc1de9b3832c9c41317efc" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc1eb097924a8edb9541a2" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc1f58c675e80ef8283869" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc2021f91584805645c770" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc214ded2a08f8e57e2cc8" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc22e5e59e0ecd440921bf" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc23af1f806ce6bd478c75" class="wb_element wb_element_shape" data-plugin="Shape"><div class="wb_shp"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc249006b21ad3fe32ea1b" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc25898a9ecba52ad4fa22" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc26477c40794fc509326d" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc27d8aed3b5c2f6f8bbe8" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc28081ff5f34dcdd6be48" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc29c50dd0dc0f2c5fcaae" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc2a4385dc013e003b3135" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc2b2725a4f99dcfac50fb" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc2ceafe358230dab284af" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><p class="wb-stl-custom10" data-dnid="10370"><strong>Rupiah Cepat</strong> menyediakan layanan cepat &amp; bersahabat melalui <strong>WhatsApp 082220066617 </strong>Resmi dan Amanah. Rupiah Cepat adalah aplikasi pinjaman cicilan dana tunai secara online/kredit online tanpa jaminan di indonesia. Rupiah Cepat berizin dan di awasi oleh Otoritas Jasa Keuangan di Indonesia.</p>
+</div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc2d9ccdf5d964768fa1fb" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc2e752f9233295254a2e3" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc2f874f3a4c6e6ceef0b6" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc30b5e72f41851a8a5d4b" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc31234577e5085804d455" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc323915a30de5c8c57d7a" class="wb_element wb_element_picture" data-plugin="Picture" title="Customer Service/(CS) Rupiah Cepat"><div class="wb_picture_wrap"><div class="wb-picture-wrapper"><img loading="lazy" alt="Customer Service/(CS) Rupiah Cepat" src="gallery_gen/535e5db0bab7d5f99dc984da4c68cbde_fit.jpg?ts=1722875168"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc33cbe1df2c284bc49fe7" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc34557d75a7ced0eb4adb" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc355bbf37a9bc50c4a2e3" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc3624bc01dc819272db3b" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc3789b0eb4e0506992905" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc3892ba83a4a93c23bac8" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc394538c8d5d7efc094f9" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc3aaa75f28d0fe2bdd281" class="wb_element wb_element_shape" data-plugin="Shape"><div class="wb_shp"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc3b0072128459e0f5f3f7" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc3c16b95bfbc4cd2ada8d" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc3d95b27d927494000081" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc3ed2e189636eda5fc94d" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc3f23a112a26ccf9a095b" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc404caf5a7d5e49b52b40" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc41e630f48ed4750d5353" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc42c22f00c260574c1f4b" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc43d11cbd8914d305fe37" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc44e9e8396fc64b24fda9" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><h1 class="wb-stl-custom4" data-dnid="10374">CS Rupiah Cepat - Layanan Resmi WhatsApp Customer Service 082220066617</h1>
+</div></div></div></div></div></div></div><div id="a191232da1dc455f7ee55b0bdd1cdd18" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc46b030fad2a9779ff6a7" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc47163fe87974b2debd80" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc4cb64e5309a1c279efd7" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc4dda84096d38e44d0735" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc4eadc311b3482be67a08" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc4ff36236531d767eee1c" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc5052ad12dfe1cf14c3ae" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc51f33cc382a9a39f10a2" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc526b96b5efdeabddf20a" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc5337d203487e3d05fcc4" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc54a15b8071f3dd9560c4" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><p class="wb-stl-custom10" data-dnid="10376">Pinjaman Rupiah Cepat, solusi tepat, kredit cepat yang ada di indonesia.</p></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc550d6978b46fb45b45f8" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc567e53d119e24e7f9e71" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc57edc0b2949a2f7854d4" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc58316da2ad3051844beb" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc593321b844afa669fe98" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc5abf1894bbaa506f06aa" class="wb_element wb_element_picture" data-plugin="Picture" title="Cs Rupiah Cepat"><div class="wb_picture_wrap"><div class="wb-picture-wrapper"><img loading="lazy" alt="Cs Rupiah Cepat" src="gallery_gen/cd65edcc3a755343e0ecd8223c3baad8_fit.jpg?ts=1722875168"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc5b0143f878eb9ab4fd58" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc5cb4e4e39166be03010b" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc5da7b02d8981c83f9637" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc5e317cfd2fe2a908e808" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc5f031e63f6af38d3a782" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc60e3c8477c82c4c6c15c" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc61e77950e4da1fba01bc" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc6235c72f7676351120d2" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-absolute"><div id="a191232da1dc63e17a139352845bccda" class="wb_element wb_element_shape" data-plugin="Shape"><div class="wb_shp"></div></div><div id="a191232da1dc64262fd42833ba902403" class="wb_element" data-plugin="CustomHtml" style=" overflow: hidden;"><div style="width: 100%; height: 100%; overflow-y: auto;"><iframe frameborder="no" src="//maps-api-ssl.google.com/maps?hl=en-US&amp;ll=-6.149799%2C106.850676&amp;output=embed&amp;q=Jl.+Damar%2C+Pademangan+Tim.%2C+Kec.+Pademangan%2C+Jkt+Utara%2C+Daerah+Khusus+Ibukota+Jakarta+14410%2C+Indonesia+%28Springhill+Office+Tower%29&amp;z=16" style="width: 100%; height: 100%; display: block;"></iframe></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="a191232da1dc6504aa713b8b6abce8af" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc668aaba8ba0831d49b0b" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc670d80bb97ebb818df31" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc6878a0e49a559c9529fc" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc69afe0f33566e9dedf2c" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc6a0022f4fd0e366ffac3" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc6b1ce2d72e843e914a1d" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a191232da1dc6ce79992933efcf735b8" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc6d0512b9f2c3262d4a41" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a191232da1dc6e4e0be24440413c75ec" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><p class="wb-stl-custom12" data-dnid="10379">Customer Service Rupiah Cepat PT Kredit Utama Fintech Indonesia.</p><p class="wb-stl-custom13" data-dnid="10380">All Rights Reserved.</p></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="wb_footer_a191232daeb900ae1e4206829b7a9225" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="wb_footer_c" class="wb_element" data-plugin="WB_Footer" style="text-align: center; width: 100%;"><div class="wb_footer"></div><script type="text/javascript">
+			$(function() {
+				var footer = $(".wb_footer");
+				var html = (footer.html() + "").replace(/^\s+|\s+$/g, "");
+				if (!html) {
+					footer.parent().remove();
+					footer = $("#footer, #footer .wb_cont_inner");
+					footer.css({height: ""});
+				}
+			});
+			</script></div></div></div></div></body>
+</html>
